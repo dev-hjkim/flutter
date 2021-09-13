@@ -20,8 +20,8 @@ class MyAppState extends State<MyApp> {
     "pounds (lbs)",
     "ounces",
   ];
-  late String _startMeasure;
-  late String _convertedMeasure;
+  var _startMeasure;
+  var _convertedMeasure;
   final Map<String, int> _measuresMap = {
     'meters': 0,
     'kilometers': 1,
