@@ -29,7 +29,8 @@ class CountDownTimer {
     }
   }
 
-  void startBreak(bool isShort) {
+  void startBreak(bool isShort) async {
+    await readSettings();
     _radius = 1;
     _time = Duration(
       minutes: (isShort) ? shortBreak : longBreak,
@@ -63,8 +64,8 @@ class CountDownTimer {
 
   Future readSettings() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    work = (prefs.getInt("workTime") ?? 30)!;
-    shortBreak = (prefs.getInt("shortBreak") ?? 30)!;
-    longBreak = (prefs.getInt("longBreak") ?? 30)!;
+    work = (prefs.getInt("workTime") ?? 30);
+    shortBreak = (prefs.getInt("shortBreak") ?? 30);
+    longBreak = (prefs.getInt("longBreak") ?? 30);
   }
 }
