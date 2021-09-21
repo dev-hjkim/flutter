@@ -1,6 +1,6 @@
 # flutter
   
-- "플러터 프로젝트" 앱 참조, 버전에 따른 코드 수정 사항 반영
+- "플러터 프로젝트" 앱 참조, 버전 변경에 따른 코드 수정 사항 반영
 - [GitHub](https://github.com/binsoopark/FlutterProjectExamples) 참조
   
 # simple_pong  
