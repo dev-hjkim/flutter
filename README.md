@@ -7,8 +7,8 @@
   
 <br/>
 <p align="center">
-    <img src="/simple_pong/simple_pong_demo.PNG" width="300px" height="400px" title="simple_pong_demo" alt="Abstract"></img></div>
-    <img src="/simple_pong/simple_pong_demo2.PNG" width="300px" height="400px" title="simple_pong_demo2" alt="Abstract"></img></div>
+    <img src="/simple_pong/simple_pong_demo.PNG" width="300px" height="700px" title="simple_pong_demo" alt="Abstract"></img></div>
+    <img src="/simple_pong/simple_pong_demo2.PNG" width="300px" height="700px" title="simple_pong_demo2" alt="Abstract"></img></div>
 </p>
 <br/>
   
@@ -19,8 +19,8 @@
   
 <br/>
 <p align="center">
-    <img src="/movie_list/movie_list_demo.PNG" width="300px" height="400px" title="movie_list_demo" alt="Abstract"></img></div>
-    <img src="/movie_list/movie_list_demo2.PNG" width="300px" height="400px" title="movie_list_demo2" alt="Abstract"></img></div>
+    <img src="/movie_list/movie_list_demo.PNG" width="300px" height="700px" title="movie_list_demo" alt="Abstract"></img></div>
+    <img src="/movie_list/movie_list_demo2.PNG" width="300px" height="700px" title="movie_list_demo2" alt="Abstract"></img></div>
 </p>
 <br/>
   
