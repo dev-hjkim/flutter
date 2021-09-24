@@ -8,6 +8,12 @@ class DbHelper {
   final int version = 1;
   late Database db;
 
+  static final DbHelper _dbHelper = DbHelper._internal();
+  DbHelper._internal();
+  factory DbHelper() {
+    return _dbHelper;
+  }
+
   Future<Database> openDb() async {
     db = await openDatabase(join(await getDatabasesPath(), 'shopping.db'),
     onCreate: (database, version) {
@@ -29,7 +35,7 @@ class DbHelper {
     db = await openDb();
     await db.execute('INSERT INTO lists VALUES (0, "Fruit", 2)');
     await db.execute('INSERT INTO items VALUES (0, 0, "Apples", ' +
-        '"2 Kg", "Better if they are green")');
+        '"2 kg", "Better if they are green")');
 
     List lists = await db.rawQuery('select * from lists');
     List items = await db.rawQuery('select * from items');
@@ -54,5 +60,46 @@ class DbHelper {
     );
 
     return id;
+  }
+
+  Future<List<ShoppingList>> getLists() async {
+    final List<Map<String, dynamic>> maps = await db.query('lists');
+
+    return List.generate(maps.length, (i) {
+      return ShoppingList(
+        maps[i]['id'],
+        maps[i]['name'],
+        maps[i]['priority'],
+      );
+    });
+  }
+
+  Future<List<ListItem>> getItems(int idList) async {
+    final List<Map<String, dynamic>> maps = await db.query('items',
+      where: 'idList = ?',
+      whereArgs: [idList]
+    );
+
+    return List.generate(maps.length, (i) {
+      return ListItem(
+        maps[i]['id'],
+        maps[i]['idList'],
+        maps[i]['name'],
+        maps[i]['quantity'],
+        maps[i]['note'],
+      );
+    });
+  }
+
+  Future<int> deleteList(ShoppingList list) async {
+    int result = await db.delete("items", where: "idList = ?",
+      whereArgs: [list.id]
+    );
+
+    result = await db.delete("lists", where: "id = ?",
+      whereArgs: [list.id]
+    );
+
+    return result;
   }
 }
